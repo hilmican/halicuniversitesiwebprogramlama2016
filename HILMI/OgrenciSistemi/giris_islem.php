@@ -15,7 +15,7 @@ if($cevap = mysql_fetch_assoc($sorgu))
 	$_SESSION['kullanici_adi'] = $cevap['kullanici_adi'];
 	echo "<br>Basarili giris<br>";
 	echo "<br><a href='kayit.php'>Kayıt sayfasına gitmek için tıklayın.</a><br>";
-	var_dump($cevap);
+	var_dump($sor);
 }
 else
 {

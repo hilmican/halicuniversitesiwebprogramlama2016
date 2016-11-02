@@ -10,9 +10,12 @@ if($_SESSION['kullanici'] == true)
 	//utf8 oldugunu belirt
 	mysql_query("set names utf8");
 
-	echo "Bana gönderilen isim:$_GET[isim], soyisim:$_GET[soyisim], numara:$_GET[numara]";
 	//veriyi gir.
-	mysql_query("insert into ogrenciler (isim,soyisim,numara,olusturma) values('$_GET[isim]','$_GET[soyisim]','$_GET[numara]','2016-10-19 12:12')");
+	if(!empty($_GET[isim]))
+	{
+		echo "Bana gönderilen isim:$_GET[isim], soyisim:$_GET[soyisim], numara:$_GET[numara]";
+		mysql_query("insert into ogrenciler (isim,soyisim,numara,olusturma) values('$_GET[isim]','$_GET[soyisim]','$_GET[numara]',now())");
+	}
 	/*
 	echo "GET İÇERİĞİ:<br>";
 	var_dump($_GET);
