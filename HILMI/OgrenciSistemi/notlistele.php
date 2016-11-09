@@ -17,4 +17,5 @@ while($cevap = mysql_fetch_assoc($sorgu))
 		 "</tr>";
 }
 echo "</table>";
+
 ?>
