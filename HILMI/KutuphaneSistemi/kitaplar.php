@@ -10,6 +10,7 @@ while($cevap = mysql_fetch_assoc($sorgu))
 			"<td>$cevap[kitap_id]</td>".
 			"<td>$cevap[kitap_isim]</td>".
 			"<td>$cevap[yazar_isim]</td>".
+			"<td><a href='odunc_al.php?kitap_id=".$cevap['kitap_id']."'>Ödünç Al</a></td>".
 		 "</tr>";
 }
 echo "</table>";
