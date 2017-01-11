@@ -29,6 +29,8 @@ Route::get('/ogrenci-listele', 'Ogrenciler@listele');
 
 Route::get('/ogrenci-listele2', 'Ogrenciler@listele2');
 
+Route::get('/kullanici-listele', 'Ogrenciler@user_listele');
+
 Route::get('/ogrenci-sil', 'Ogrenciler@sil');
 
 Route::get('/arrayOrnek', 'Ogrenciler@arrayOrnek');

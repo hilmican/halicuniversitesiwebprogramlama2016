@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use \App\Flight;
+use \App\Seat;
 use Illuminate\Http\Request;
 use DB;
 
@@ -49,6 +51,47 @@ class Ogrenciler extends Controller
         $tamami = implode(' ', $degiskenim3);
         
         return view('array-ornek',Array('parametre'=>Array('ornek1'=>$degiskenim,'ornek2'=>$degiskenim2, 'ornek3'=>$parcali, 'ornek4'=> $tamami)));
+    }
+
+    public function user_listele()
+    {
+        /*
+        $flight = new Flight;
+        $flight->adi ='test 4';
+        $flight->sifre = '123';
+        $flight->save();
+
+        $seat = new Seat;
+        $seat->adi = '4. ucusa ait';
+        $seat->flight_id=4;
+        $seat->save();
+        */
+        /*
+        $user_listesi = \App\Flight::all();
+        var_dump($user_listesi);
+        */
+/*
+        $myFlight = \App\Flight::find(1);
+        foreach ($myFlight->seat as $mySeat) {
+            echo 'Koltuk adi:'.$mySeat->adi.' '.$myFlight->id.' ID li ucusa aittir <br>';
+        }
+*/
+
+        
+        $myFlight = \App\Flight::where('id',4)->first();
+        echo '<table border="1"><tr><td>Koltuk Adı</td><td>Uçuş ID</td></tr>';
+        foreach ($myFlight->seat as $mySeat) {
+            echo '<tr><td>'.$mySeat->adi.'</td><td>'.$myFlight->id.'</td></tr>';
+        }
+        echo '</table><br><br>';
+
+        echo '<table border="1"><tr><td>pilot Adı</td><td>Uçuş ID</td></tr>';
+        foreach ($myFlight->pilot as $myPilot) {
+            echo '<tr><td>'.$myPilot->adi.'</td><td>'.$myFlight->id.'</td></tr>';
+        }
+        echo '</table>';
+        //var_dump($myFlight->Seat());
+        //var_dump($myFlight);
     }
 
 }
